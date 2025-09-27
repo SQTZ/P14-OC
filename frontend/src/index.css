@@ -3,18 +3,32 @@
 
 /* Styles spécifiques pour les pages */
 
-/* Page Home - Formulaire de création d'employé */
+/* Page Home - Formulaire de création d'employé moderne */
 .home-page {
   max-width: 1000px;
   margin: 0 auto;
+  padding: 0 var(--spacing-xl);
 }
 
 .form-container {
-  background: white;
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-md);
-  padding: var(--spacing-2xl);
-  margin-bottom: var(--spacing-2xl);
+  background: var(--white);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-lg);
+  padding: var(--spacing-4xl);
+  margin-bottom: var(--spacing-3xl);
+  border: 1px solid var(--gray-200);
+  position: relative;
+  overflow: hidden;
+}
+
+.form-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
 }
 
 .employee-form {
@@ -23,8 +37,8 @@
 }
 
 .form-section {
-  margin-bottom: var(--spacing-2xl);
-  padding-bottom: var(--spacing-xl);
+  margin-bottom: var(--spacing-3xl);
+  padding-bottom: var(--spacing-2xl);
   border-bottom: 1px solid var(--gray-200);
 }
 
@@ -36,15 +50,29 @@
 
 .form-section h3 {
   color: var(--gray-800);
-  font-size: var(--font-size-lg);
-  font-weight: 600;
-  margin-bottom: var(--spacing-lg);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--spacing-xl);
+  position: relative;
+  padding-left: var(--spacing-lg);
+}
+
+.form-section h3::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 20px;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  border-radius: var(--radius-sm);
 }
 
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-lg);
+  gap: var(--spacing-xl);
 }
 
 .form-field {
@@ -54,30 +82,53 @@
 }
 
 .form-field label {
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
   color: var(--gray-700);
   font-size: var(--font-size-sm);
+  margin-bottom: var(--spacing-xs);
 }
 
 .form-field input,
 .form-field select {
-  padding: var(--spacing-sm) var(--spacing-md);
-  border: 1px solid var(--gray-300);
-  border-radius: var(--radius-md);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border: 2px solid var(--gray-200);
+  border-radius: var(--radius-lg);
   font-size: var(--font-size-base);
-  transition: var(--transition-fast);
+  transition: all var(--transition-fast);
+  background: var(--white);
 }
 
 .form-field input:focus,
 .form-field select:focus {
   outline: none;
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px var(--primary-light);
+  box-shadow: 0 0 0 4px var(--primary-light);
+  transform: translateY(-1px);
 }
 
 .form-field input.error,
 .form-field select.error {
   border-color: var(--error-color);
+  box-shadow: 0 0 0 4px var(--error-light);
+}
+
+/* Fieldset moderne */
+.address {
+  border: 2px solid var(--gray-200);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-2xl);
+  margin: var(--spacing-lg) 0;
+  background: var(--gray-50);
+}
+
+.address legend {
+  font-weight: var(--font-weight-semibold);
+  color: var(--gray-800);
+  font-size: var(--font-size-lg);
+  padding: 0 var(--spacing-md);
+  background: var(--white);
+  border-radius: var(--radius-md);
+  border: 2px solid var(--gray-200);
 }
 
 .required {
@@ -93,87 +144,146 @@
 .form-actions {
   display: flex;
   justify-content: center;
-  padding-top: var(--spacing-xl);
+  padding-top: var(--spacing-3xl);
+  margin-top: var(--spacing-2xl);
+  border-top: 1px solid var(--gray-200);
 }
 
 .submit-btn {
-  padding: var(--spacing-md) var(--spacing-2xl);
-  background-color: var(--primary-color);
-  color: white;
+  padding: var(--spacing-lg) var(--spacing-4xl);
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  color: var(--white);
   border: none;
-  border-radius: var(--radius-md);
-  font-size: var(--font-size-base);
-  font-weight: 600;
+  border-radius: var(--radius-xl);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
   cursor: pointer;
-  transition: var(--transition-fast);
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
+  min-width: 200px;
+}
+
+.submit-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
 }
 
 .submit-btn:hover:not(:disabled) {
-  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-xl);
+}
+
+.submit-btn:hover:not(:disabled)::before {
+  opacity: 1;
+}
+
+.submit-btn:active:not(:disabled) {
+  transform: translateY(0);
 }
 
 .submit-btn:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+  transform: none;
+  box-shadow: var(--shadow-sm);
 }
 
 /* Page Employee - Liste des employés */
 .employee-page {
-  max-width: 1400px;
+  width: 100%;
   margin: 0 auto;
+  padding: 0 var(--spacing-xl);
 }
 
-/* En-têtes de page */
+/* Container pour la table avec scroll horizontal */
+.table-container {
+  width: 100%;
+  margin: var(--spacing-xl) 0;
+}
+
+/* En-têtes de page modernes */
 .page-header {
-  margin-bottom: var(--spacing-2xl);
+  margin-bottom: var(--spacing-4xl);
+  text-align: center;
+  position: relative;
 }
 
 .page-header h1, .page-header h2 {
   color: var(--gray-900);
-  margin-bottom: var(--spacing-sm);
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-lg);
+  background: linear-gradient(135deg, var(--gray-900), var(--gray-700));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.02em;
 }
 
 .page-header p {
   color: var(--gray-600);
   font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-relaxed);
 }
 
 .header-content {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  gap: var(--spacing-lg);
+  align-items: center;
+  gap: var(--spacing-xl);
+  background: var(--white);
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--gray-200);
 }
 
 .header-title {
   display: flex;
   align-items: center;
-  gap: var(--spacing-md);
+  gap: var(--spacing-lg);
+}
+
+.header-title h1 {
+  margin: 0;
+  font-size: var(--font-size-3xl);
+  text-align: left;
 }
 
 .header-actions {
   display: flex;
-  gap: var(--spacing-sm);
+  gap: var(--spacing-md);
 }
 
-/* Loading states */
+/* Loading states modernes */
 .loading-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: var(--spacing-2xl);
+  padding: var(--spacing-5xl);
   text-align: center;
+  background: var(--white);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-lg);
+  margin: var(--spacing-2xl);
 }
 
 .loading-spinner {
-  width: 40px;
-  height: 40px;
-  border: 3px solid var(--gray-200);
-  border-top: 3px solid var(--primary-color);
+  width: 48px;
+  height: 48px;
+  border: 4px solid var(--gray-200);
+  border-top: 4px solid var(--primary-color);
   border-radius: 50%;
   animation: spin 1s linear infinite;
-  margin-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-xl);
 }
 
 @keyframes spin {
@@ -181,25 +291,41 @@
   100% { transform: rotate(360deg); }
 }
 
-/* Empty states */
+.loading-container p {
+  color: var(--gray-600);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+}
+
+/* Empty states modernes */
 .empty-state {
   text-align: center;
-  padding: var(--spacing-2xl);
+  padding: var(--spacing-5xl);
   color: var(--gray-500);
+  background: var(--white);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-lg);
+  border: 2px dashed var(--gray-300);
+  margin: var(--spacing-2xl);
 }
 
 .empty-icon {
-  color: var(--gray-300);
-  margin-bottom: var(--spacing-lg);
+  color: var(--gray-400);
+  margin-bottom: var(--spacing-xl);
 }
 
 .empty-state h3 {
   color: var(--gray-700);
-  margin-bottom: var(--spacing-sm);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--spacing-md);
 }
 
 .empty-state p {
-  margin-bottom: var(--spacing-lg);
+  color: var(--gray-500);
+  font-size: var(--font-size-base);
+  margin-bottom: var(--spacing-2xl);
+  line-height: var(--line-height-relaxed);
 }
 
 /* Statistiques */

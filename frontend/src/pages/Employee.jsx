@@ -36,13 +36,6 @@ function Employee() {
           <div className="header-title">
             <h1>Current Employees</h1>
           </div>
-          
-          <div className="header-actions">
-            <Link to="/" className="btn btn-secondary">
-              <Home size={18} />
-              Home
-            </Link>
-          </div>
         </div>
       </div>
 

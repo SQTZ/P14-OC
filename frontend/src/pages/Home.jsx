@@ -129,9 +129,6 @@ function Home() {
   return (
     <div className="home-page">
       <div className="page-header">
-        <Link to="/employees" className="btn btn-secondary" style={{ marginBottom: '1rem' }}>
-          View Current Employees
-        </Link>
         <h2>Create Employee</h2>
       </div>
 

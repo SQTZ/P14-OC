@@ -1,0 +1,50 @@
+{
+  "name": "lgx-datepicker",
+  "version": "1.0.0",
+  "description": "A simple and lightweight React DatePicker component using native HTML5 date input",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "react",
+    "datepicker",
+    "date",
+    "calendar",
+    "html5",
+    "native",
+    "lightweight",
+    "simple",
+    "component"
+  ],
+  "author": "Pierre",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": ">=16.8.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.23.0",
+    "@babel/preset-react": "^7.23.0",
+    "@rollup/plugin-babel": "^6.0.0",
+    "@rollup/plugin-node-resolve": "^15.2.0",
+    "rollup": "^4.0.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/simple-react-datepicker"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/simple-react-datepicker/issues"
+  },
+  "homepage": "https://github.com/yourusername/simple-react-datepicker#readme"
+}
+

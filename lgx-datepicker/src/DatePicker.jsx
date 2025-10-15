@@ -31,8 +31,25 @@ const DatePicker = ({
   // Convert dates to native input format (YYYY-MM-DD)
   const formatDateForInput = (date) => {
     if (!date) return '';
-    const d = typeof date === 'string' ? new Date(date) : date;
-    return d.toISOString().split('T')[0];
+    
+    let d;
+    if (typeof date === 'string') {
+      // Parse MM/DD/YYYY format
+      if (date.includes('/')) {
+        const [month, day, year] = date.split('/');
+        d = new Date(year, month - 1, day);
+      } else {
+        d = new Date(date);
+      }
+    } else {
+      d = date;
+    }
+    
+    // Format as YYYY-MM-DD without timezone issues
+    const year = d.getFullYear();
+    const month = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
   };
 
   const handleChange = (e) => {

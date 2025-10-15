@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.1] - 2025-10-15
+
+### Fixed
+- Fixed timezone issue causing dates to shift by one day when selected
+- Improved date parsing to use local time instead of UTC conversion
+
 ## [1.0.0] - 2025-10-15
 
 ### Added

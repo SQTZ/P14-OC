@@ -1,6 +1,6 @@
 {
   "name": "lgx-datepicker",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple and lightweight React DatePicker component using native HTML5 date input",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useEmployees } from '../context/EmployeeContext';
 import { STATES, DEPARTMENTS } from '../constants/data';
-import DatePicker from '../components/DatePicker';
+import DatePicker from 'lgx-datepicker'; // Import depuis npm
 import Select from '../components/Select';
 import Modal from '../components/Modal';
 
